@@ -22,7 +22,7 @@ LOTTO - Wybranie przez gracza sześciu liczb od 1 do 50, 1 trafiona=mała wygran
 ?????? - ???????
 =================================================================================================
 Koszt i mnożnik wygranej:
-BlackJack - od 1$ do max 100$  / 
+BlackJack - od 1$ do max 100$  / ??? nie wiem jakie mnożniki dojebać, sprawdzcie w necie
 Slots - 5$ za turę / 3x 7 = 250$, 3x $ = 100$, 3x A = 50$, 3x B = 25$, 3x C = 10$, 3x D = 2$
 Ruletka - od 1$ do 200$ / Pojedyncza liczba trafiona = 35x, Parzyste i Nieparzyste = 2x, Czerwone i czarne = 2x
 Lotto - 5$ za kupon / 6 trafionych - 25x  ||  5t - 20x  ||  4t - 15x  ||  3t - 10x  ||  2t - 5x  ||  1t - 2x
