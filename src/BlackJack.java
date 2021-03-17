@@ -1,8 +1,7 @@
-import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
+
+
 
 public class BlackJack {
 
@@ -20,7 +19,8 @@ public class BlackJack {
         boolean betAgain = true;
         double reward = 0;
         double bet = 0;
-        String[] talia = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
+        String[] talia = {"As", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jopek", "Dama", "Król"};
+        String[] kolor = {"Serce","Pik","Trefl","Karo"};
 
         System.out.println("It's time for soooooommme");
         System.out.println(" _______   ___       _______   _______   ___   _       ___   _______   _______   ___   _   __ ");
@@ -31,7 +31,8 @@ public class BlackJack {
         System.out.println("|  |_|  | |       | |   _   | |     |_  |    _  | |       | |   _   | |     |   |    _  |  __ ");
         System.out.println("|_______| |_______| |__| |__| |_______| |___| |_| |_______| |__| |__| |_______| |___| |_| |__|");
 
-
+    boolean graj = true;
+    try {
         do {
             System.out.println("Podaj kwotę którą chcesz postawić?");
             bet = scanner.nextDouble();
@@ -49,13 +50,61 @@ public class BlackJack {
 
         }
         while (betAgain);
+
+        System.out.println(); System.out.println(); System.out.println(); System.out.println(); System.out.println(); System.out.println(); System.out.println(); System.out.println();
+
         System.out.println("Twoje saldo po transakcji = " + player.getMoney());
 
+        System.out.println(); System.out.println();
 
 
-            int losowa = random.nextInt(13);
-            if (losowa)
+        int losowykolor = random.nextInt(3);
+        int losowakarta = random.nextInt(13);
 
-        System.out.println("Suma Kart krupiera to: " + SumaKrupiera);
+        if (losowakarta == 0) {
+            SumaKrupiera = 11;
+        } else if (losowakarta > 0 && losowakarta < 9) {
+            SumaKrupiera = losowakarta + 1;
+        } else if (losowakarta > 9) {
+            SumaKrupiera = 10;
+        }
+        System.out.println("Karty krupiera to: " + talia[losowakarta] + " " + kolor[losowykolor] + " łącznie: " + SumaKrupiera);
+
+
+        losowakarta = random.nextInt(13);
+        losowykolor = random.nextInt(3);
+
+        System.out.print("Twoje karty to: " + talia[losowakarta] + " " + kolor[losowykolor] + " ");
+
+        if (losowakarta == 0) {
+            SumaGracza = 11;
+        } else if (losowakarta > 0 && losowakarta < 9) {
+            SumaGracza = losowakarta + 1;
+        } else if (losowakarta > 9) {
+            SumaGracza = 10;
+        }
+
+        losowakarta = random.nextInt(13);
+        losowykolor = random.nextInt(3);
+
+        if (losowakarta == 0) {
+            SumaGracza += 1;
+        } else if (losowakarta > 0 && losowakarta < 9) {
+            SumaGracza += losowakarta + 1;
+        } else if (losowakarta > 9) {
+            SumaGracza += 10;
+        }
+
+        System.out.print(" oraz " + talia[losowakarta] + " " + kolor[losowykolor] + " łącznie: " + SumaGracza);
+
+
+        }catch (Exception exception){
+        System.out.println("Error");
+        player.setMoney(bet);
+        scanner.next();
+         }
     }
-}
+
+    }
+
+
