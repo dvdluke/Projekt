@@ -19,3 +19,4 @@ Do zrobienia:
 
 		 -- Notatki --
 Ł: Jak będziecie mieli czas to potrzebuje pomocy z wejściem do Ruletka.java poprzez menu i wyjścia
+M: Wiem jak wejść potem bede kminil jak wyjść udalo mi sie wywolac metode z black jacka w mainie wiec jest git teraz musze zrobic tego black jacka

@@ -36,7 +36,7 @@ public class Main {
                         stan = false;
                     }
                     case "3" -> {
-                        System.out.println("Exi");
+                        BlackJack.BlackJackGame(playerOne);
                         stan = false;
                     }
                     case "4" -> {
