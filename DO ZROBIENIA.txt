@@ -15,5 +15,7 @@ Do zrobienia:
 
  - Menu
   - Wejście do kasyna(Wpisanie nazwy, wieku, ilości pieniędzy [max $1000])
-
   - Wejście do gier poprzez menu
+
+		 -- Notatki --
+Ł: Jak będziecie mieli czas to potrzebuje pomocy z wejściem do Ruletka.java poprzez menu i wyjścia
