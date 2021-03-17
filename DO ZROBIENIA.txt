@@ -1,0 +1,19 @@
+Do zrobienia:
+ - BlackJack
+  - cała gierka
+
+ - Ruletka
+  - połączenie 'money' z ruletki z 'money' gracz.java
+  - wyjście z gry do menu
+
+ - Slots
+  - cała gierka
+
+ - Lotto
+  - cała gierka
+
+
+ - Menu
+  - Wejście do kasyna(Wpisanie nazwy, wieku, ilości pieniędzy [max $1000])
+
+  - Wejście do gier poprzez menu
