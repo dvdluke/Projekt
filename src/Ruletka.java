@@ -9,7 +9,7 @@ public class Ruletka
         Random generator = new Random();
         double total = 500;
         double amount;
-        int choice;
+        int Choice;
         int Liczba;
         int rouletteNum;
         int Wynik;
@@ -20,15 +20,15 @@ public class Ruletka
         {
             System.out.print("Ile chcesz obstawić pieniędzy: ");
             amount = keyboard.nextDouble();
-            System.out.print("[0] - Parzyste liczby\n[1] - Nieparzyste liczby\n[2] - Pojedynczą liczbę\n");
-            choice = -1;
-            while (choice < 0 || choice > 2)
+            System.out.print("\n[0] - Parzyste liczby\n[1] - Nieparzyste liczby\n[2] - Pojedynczą liczbę\n");
+            Choice = -1;
+            while (Choice < 0 || Choice > 2)
             {
-                System.out.print("Postaw zakład na: ");
-                choice = keyboard.nextInt();
+                System.out.print("Na co chcesz obstawić zakład: ");
+                Choice = keyboard.nextInt();
             }
             Liczba = 0;
-            if (choice == 2)
+            if (Choice == 2)
             {
                 while (Liczba < 1 || Liczba > 36)
                 {
@@ -48,7 +48,7 @@ public class Ruletka
             System.out.println(" ");
             System.out.println("Losowanie liczby.");
             TimeUnit.SECONDS.sleep(1);
-            System.out.println(" ");
+            System.out.println("\t\t\t\t\t\t\t\t ");
             System.out.println(" ");
             System.out.println(" ");
             System.out.println(" ");
@@ -69,10 +69,11 @@ public class Ruletka
             System.out.println(" ");
             System.out.println(" ");
             System.out.println("Losowanie liczby...");
-            TimeUnit.SECONDS.sleep(1);
-            System.out.println("Roulette number: " + rouletteNum);
-
-            if (choice == 2)
+            TimeUnit.SECONDS.sleep(2);
+            System.out.println(" ");
+            System.out.println("Wypadła liczba: " + rouletteNum);
+            System.out.println(" ");
+            if (Choice == 2)
             {
                 if (rouletteNum == Liczba)
                     Wynik = 35;
@@ -81,12 +82,11 @@ public class Ruletka
             }
             else
             {
-                if (rouletteNum == 0 || rouletteNum % 2 != choice)
+                if (rouletteNum == 0 || rouletteNum % 2 != Choice)
                     Wynik = 0;
                 else
                     Wynik = 1;
             }
-
             if (Wynik > 0)
             {
                 System.out.println("Gratulacje!!!");
@@ -95,7 +95,6 @@ public class Ruletka
                         (Wynik + 1) * amount);
                 total = (Wynik + 1) * amount + total;
                 WynikArray[rouletteNum]++;
-
             }
             else
             {
@@ -107,26 +106,11 @@ public class Ruletka
                 if (total <= 0) {
                     break;
                 }
-
             }
 
-            //Ask for another game
-            for (int totals=1; totals<36; totals++) {
-                if( WynikArray[totals] > 0 ) {
-                    System.out.println("The number " + totals + " won " + WynikArray[totals] + " times.");
-                }
-            }
-
-
-
-
-
-            System.out.println("You hayve $" + total + " remaining." );
-            System.out.print("\nWould you like to play another game? (y/n) ");
+            System.out.println("Twój aktualny balans to $" + total);
+            System.out.print("\nCzy chcesz ponownie spróbować swojego szczęścia? (y/n)\n ");
             odpowiedz = keyboard.next().charAt(0);
-
-
         }
-
     }
 }
