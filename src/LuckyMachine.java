@@ -29,10 +29,11 @@ public class LuckyMachine {
                 for (int number : luckyNumbers) {
                     System.out.println(number + "\t");
                 }
-                System.out.println("\n Twoje saldo = " + player.getMoney());
+                System.out.println("\n Twoje saldo = $" + player.getMoney());
                 do {
                     System.out.println("Podaj kwotę którą chcesz postawić?");
                     bet = scanner.nextDouble();
+
                     if(bet > 0){
                         if(player.getMoney() < bet) System.out.println("Nie masz funduszy by tyle obstawić!");
                         else{
@@ -44,7 +45,7 @@ public class LuckyMachine {
                         System.out.println("Złe dane");
                     }
                 }while (betAgain);
-                System.out.println("Twoje saldo po tranzakcji = " + player.getMoney());
+                System.out.println("Twoje saldo po transakcji = " + player.getMoney());
                 System.out.println("Losowanie liczby...");
                 TimeUnit.SECONDS.sleep(1);
                 int yourNumber = random.nextInt(20);
