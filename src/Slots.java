@@ -11,9 +11,10 @@ public class Slots {
         boolean playAgain = false;
         boolean betAgain = true;
         boolean play = true;
+        boolean kłódka = true;
         double reward = 0;
         double bet = 0;
-        Scanner wybor = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         Random random = new Random();
 
         System.out.println(" ");System.out.println(" ");System.out.println(" ");
@@ -33,8 +34,9 @@ public class Slots {
                 System.out.println("Twoje saldo wynosi: $" + player.getMoney());
                 do {
                 do {
+                    kłódka = true;
                     System.out.println("Podaj kwotę którą chcesz postawić?");
-                    bet = wybor.nextDouble();
+                    bet = scanner.nextDouble();
 
                     if(bet > 0){
                         if(player.getMoney() < bet) System.out.println("Nie masz funduszy by tyle obstawić!");
@@ -199,15 +201,20 @@ public class Slots {
                     player.setMoney(player.getMoney() + reward);
                     reward = 0;
                 }
+                    do{ if (!playAgain && player.getMoney() > 0) {
+                        System.out.println("chcesz znowu zagrać ? tak [y] nie [n]");
+                        String draw = scanner.next();
+                        if (draw.equals("n") || draw.equals("N")) {
+                            play = false;
+                            kłódka = false;
+                        } else if (draw.equals("y") || draw.equals("Y")) {
+                            kłódka = false;
+                        } else {
+                            System.out.println("Złe dane!");
+                        }
 
-                    if (!playAgain && player.getMoney() > 0) {
-                        System.out.println("Chcesz znowu zagrać ? tak [y] nie [n]");
-                        String choice = wybor.next();
-                        if (choice.equals("n")) play = false;
                     }
-                    else if (player.getMoney() <= 0){
-                        play = false;
-                    }
+                    } while (kłódka);
 
 
 
@@ -219,7 +226,7 @@ public class Slots {
             System.out.println("Error");
             System.out.println("Z powodu awarii prosimy podejść do drugiej maszyny bądź wybrać inną grę.");
             TimeUnit.SECONDS.sleep(5);
-            wybor.next();
+            scanner.next();
         }
 
 
