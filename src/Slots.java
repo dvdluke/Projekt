@@ -66,22 +66,22 @@ public class Slots {
                 switch (pierwsza)
                 {
                     case 0:
-                        System.out.print(" 7");
+                        System.out.print("|| 7 ||");
                         break;
                     case 1:
-                        System.out.print(" $");
+                        System.out.print("|| $ ||");
                         break;
                     case 2:
-                        System.out.print(" A");
+                        System.out.print("|| A ||");
                         break;
                     case 3:
-                        System.out.print(" B");
+                        System.out.print("|| B ||");
                         break;
                     case 4:
-                        System.out.print(" C");
+                        System.out.print("|| C ||");
                         break;
                     default:
-                        System.out.print(" D");
+                        System.out.print("|| D ||");
                 }
                 if (b < 19)
                 {
@@ -105,22 +105,22 @@ public class Slots {
                 switch (druga)
                 {
                     case 0:
-                        System.out.print(" 7");
+                        System.out.print(" 7 ||");
                         break;
                     case 1:
-                        System.out.print(" $");
+                        System.out.print(" $ ||");
                         break;
                     case 2:
-                        System.out.print(" A");
+                        System.out.print(" A ||");
                         break;
                     case 3:
-                        System.out.print(" B");
+                        System.out.print(" B ||");
                         break;
                     case 4:
-                        System.out.print(" C");
+                        System.out.print(" C ||");
                         break;
                     default:
-                        System.out.print(" D");
+                        System.out.print(" D ||");
                 }
                 if (c < 19)
                 {
@@ -144,22 +144,22 @@ public class Slots {
                 switch (trzecia)
                 {
                     case 0:
-                        System.out.print(" 7");
+                        System.out.print(" 7 ||");
                         break;
                     case 1:
-                        System.out.print(" $");
+                        System.out.print(" $ ||");
                         break;
                     case 2:
-                        System.out.print(" A");
+                        System.out.print(" A ||");
                         break;
                     case 3:
-                        System.out.print(" B");
+                        System.out.print(" B ||");
                         break;
                     case 4:
-                        System.out.print(" C");
+                        System.out.print(" C ||");
                         break;
                     default:
-                        System.out.print(" D");
+                        System.out.print(" D ||");
                 }
                 if (pierwsza != druga && pierwsza != trzecia && druga != trzecia)
                 {
