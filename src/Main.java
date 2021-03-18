@@ -29,7 +29,7 @@ public class Main {
                 switch (choice) {
 
                     case "1" -> {
-                        luckyMachine.luckyMachineGame(playerOne);
+                        Slots.Slots(playerOne);
                     }
                     case "2" -> {
                         System.out.println("Exit");
