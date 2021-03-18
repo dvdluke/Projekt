@@ -15,10 +15,10 @@ public class Slots {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
         try {
-            do {
                 System.out.println("Witamy w Automacie! ");
                 System.out.println("Gra polega na wylosowaniu 3 tych samych liczb.");
                 System.out.println("Twoje saldo wynosi: $" + player.getMoney());
+                do {
                 do {
                     System.out.println("Podaj kwotę którą chcesz postawić?");
                     bet = scanner.nextDouble();
@@ -167,12 +167,13 @@ public class Slots {
                 else if (pierwsza == druga || pierwsza == trzecia || druga == trzecia)
                 {
                     reward = bet;
-                    System.out.println("\nGratuluję, wygrałeś $" + reward);
+                    System.out.println("\nGratuluję, nie wygrałeś nic ale odzyskałeś postawioną sumę o wartości "
+                            + reward);
                     player.setMoney(player.getMoney() + reward);
                 }
                 else if (pierwsza == druga && pierwsza == trzecia && pierwsza != 0)
                 {
-                    reward = bet * 1.1;
+                    reward = bet * 2;
                     System.out.println("\nGratuluję, wygrałeś $" + reward );
                     player.setMoney(player.getMoney() + reward);
                 }
