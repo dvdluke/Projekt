@@ -88,7 +88,7 @@ public class BlackJack {
             } else if (losowakarta >= 9) {
                 SumaKrupiera = 10;
             }
-            System.out.println("Karty krupiera to: " + talia[losowakarta] + " " + kolor[losowykolor] + " |Suma Kart: " + SumaKrupiera);
+            System.out.println("Karty krupiera to: " + talia[losowakarta] + " " + kolor[losowykolor] + " |\tSuma Kart: " + SumaKrupiera);
 
 
             losowakarta = random.nextInt(13);
@@ -117,7 +117,7 @@ public class BlackJack {
                 SumaGracza += 10;
             }
 
-            System.out.print(" oraz " + talia[losowakarta] + " " + kolor[losowykolor] + " |Suma Kart: " + SumaGracza);
+            System.out.print(" oraz " + talia[losowakarta] + " " + kolor[losowykolor] + " |\tSuma Kart: " + SumaGracza);
             if (SumaGracza == 21) {
                 System.out.println();
                 System.out.println("Black Jack!");
@@ -129,7 +129,7 @@ public class BlackJack {
                 System.out.println();
                 System.out.println();
                 System.out.println();
-                System.out.println("Czy chcesz dobrać? tak [y] nie [n]");
+                System.out.println("Czy chcesz dobrać kartę? Tak [y] Nie [n]");
                 String draw = scanner.next();
                 if (draw.equals("y") || draw.equals("Y")) {
 
@@ -147,7 +147,7 @@ public class BlackJack {
                     }
 
 
-                    System.out.println("Wylosowałeś " + talia[losowakarta] + " " + kolor[losowykolor] + " |Suma Kart: " + SumaGracza);
+                    System.out.println("Wylosowałeś " + talia[losowakarta] + " " + kolor[losowykolor] + " |\tSuma Kart: " + SumaGracza);
 
                     if (SumaGracza > 21) {
                         Bust = true;
@@ -184,7 +184,7 @@ public class BlackJack {
                     }
 
 
-                    System.out.println("Krupier wylosował: " + talia[losowakarta] + " " + kolor[losowykolor] + " |Łącznie: " + SumaKrupiera);
+                    System.out.println("Krupier wylosował: " + talia[losowakarta] + " " + kolor[losowykolor] + " |\tŁącznie: " + SumaKrupiera);
                 }
 
             } while (!KrupierBust);
@@ -214,7 +214,7 @@ public class BlackJack {
 
                do{ if (!playAgain && player.getMoney() > 0) {
                    System.out.println("Twój aktualny balans to $" + player.getMoney());
-                   System.out.println("chcesz znowu zagrać ? tak [y] nie [n]");
+                   System.out.println("Czy chciałbyś znowu zagrać? Tak [y] Nie [n]");
                    String draw = scanner.next();
                    if (draw.equals("n") || draw.equals("N")) {
                        play = false;

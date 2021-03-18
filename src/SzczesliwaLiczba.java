@@ -35,7 +35,7 @@ public class SzczesliwaLiczba {
                 }
                 System.out.println("\n Twoje saldo = $" + player.getMoney());
                 do {
-                    System.out.println("Podaj kwotę którą chcesz postawić?");
+                    System.out.println("Podaj kwotę którą chcesz postawić: ");
                     bet = scanner.nextDouble();
 
                     if(bet > 0){
@@ -68,7 +68,7 @@ public class SzczesliwaLiczba {
                     boolean stan = true;
                     do {
                         System.out.println("Masz serie = " + strike + "\n" +
-                                "Czy grasz dalej czy wolisz brać pieniądze? tak [y] nie [n]");
+                                "Czy grasz dalej czy wolisz zatrzymać tą szczęśliwą passę? Tak [y] Nie [n]");
                         char choice = scanner.next().charAt(0);
                         switch (choice) {
                             case 'y' -> {
@@ -95,7 +95,7 @@ public class SzczesliwaLiczba {
                 else if (strike == 3) {
                     reward += bet * 3;
                     player.setMoney(player.getMoney() + reward);
-                    System.out.println("Masz strike 3 i wygrywasz największy bonus = " + player.getMoney());
+                    System.out.println("Trzy razy trafiłeś szczęśliwą liczbę i wygrywasz największy bonus = " + player.getMoney());
                     strike = 0;
                     reward = 0;
                     playAgain = false;
@@ -106,7 +106,7 @@ public class SzczesliwaLiczba {
                     reward = 0;
                 }
                 if (!playAgain && player.getMoney() > 0) {
-                    System.out.println("chcesz znowu zagrać ? tak [y] nie [n]");
+                    System.out.println("Czy chciałbyś znowu zagrać? Tak [y] Nie [n]");
                     String choice = scanner.next();
                     if (choice.equals("n")) play = false;
                 }

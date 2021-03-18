@@ -177,13 +177,17 @@ public class Slots {
                 }
                 if (pierwsza != druga && pierwsza != trzecia && druga != trzecia)
                 {
+<<<<<<< Updated upstream
                     System.out.println("\nNiestety nic nie wygrałeś.");
                     break;
+=======
+                    System.out.println("\nNiestety nic nie wygrałeś. ;(");
+>>>>>>> Stashed changes
                 }
                 else if (pierwsza == druga || pierwsza == trzecia || druga == trzecia)
                 {
                     reward = bet;
-                    System.out.println("\nGratuluję, nie wygrałeś nic ale odzyskałeś postawioną sumę o wartości $"
+                    System.out.println("\nGratulujemy, nie wygrałeś nic ale odzyskałeś postawioną sumę o wartości $"
                             + reward);
                     player.setMoney(player.getMoney() + reward);
                     reward = 0;
@@ -191,20 +195,24 @@ public class Slots {
                 else if (pierwsza == druga && pierwsza == trzecia && pierwsza != 0)
                 {
                     reward = bet * 2;
-                    System.out.println("\nGratuluję, wygrałeś $" + reward );
+                    System.out.println("\nGratulujemy, wygrałeś $" + reward );
                     player.setMoney(player.getMoney() + reward);
                     reward = 0;
                 }
                 else if (pierwsza == 0 && druga == 0 && trzecia == 0)
                 {
                     reward = bet * 50;
-                    System.out.println("\nGratuluję wygrałeś główną nagrodę $" + reward);
+                    System.out.println("\nGratulujemy wygrałeś główną nagrodę $" + reward);
                     player.setMoney(player.getMoney() + reward);
                     reward = 0;
                 }
                     do{ if (!playAgain && player.getMoney() > 0) {
                         System.out.println("Twój aktualny balans to $" + player.getMoney());
+<<<<<<< Updated upstream
                         System.out.println("Chcesz znowu zagrać? tak [y] nie [n]");
+=======
+                        System.out.println("Czy chciałbyś znowu zagrać? Tak [y] Nie [n]");
+>>>>>>> Stashed changes
                         String draw = scanner.next();
                         if (draw.equals("n") || draw.equals("N")) {
                             play = false;
