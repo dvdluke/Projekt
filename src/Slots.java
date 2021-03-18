@@ -15,6 +15,18 @@ public class Slots {
         double bet = 0;
         Scanner wybor = new Scanner(System.in);
         Random random = new Random();
+
+        System.out.println(" ");System.out.println(" ");System.out.println(" ");
+        System.out.println("It's time for soooooommme");
+        System.out.println(" _______  ___      _______  _______  _______ ");
+        System.out.println("|       ||   |    |       ||       ||       |");
+        System.out.println("|  _____||   |    |   _   ||_     _||  _____|");
+        System.out.println("| |_____ |   |    |  | |  |  |   |  | |_____ ");
+        System.out.println("|_____  ||   |___ |  |_|  |  |   |  |_____  |");
+        System.out.println(" _____| ||       ||       |  |   |   _____| |");
+        System.out.println("|_______||_______||_______|  |___|  |_______|");
+        System.out.println(" ");System.out.println(" ");System.out.println(" ");
+
         try {
                 System.out.println("Witamy w Automacie! ");
                 System.out.println("Gra polega na wylosowaniu 3 tych samych liczb.");

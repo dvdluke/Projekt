@@ -21,6 +21,19 @@ public class Ruletka
         char odpowiedz = 'y';
         int WynikArray[] = new int[37];
 
+        System.out.println(" ");System.out.println(" ");System.out.println(" ");
+        System.out.println("It's time for soooooommme");
+        System.out.println(" ______    _______  __   __  ___      _______  _______  _______  _______ ");
+        System.out.println("|    _ |  |       ||  | |  ||   |    |       ||       ||       ||       |");
+        System.out.println("|   | ||  |   _   ||  | |  ||   |    |    ___||_     _||_     _||    ___|");
+        System.out.println("|   |_||_ |  | |  ||  |_|  ||   |    |   |___   |   |    |   |  |   |___ ");
+        System.out.println("|    __  ||  |_|  ||       ||   |___ |    ___|  |   |    |   |  |    ___|");
+        System.out.println("|   |  | ||       ||       ||       ||   |___   |   |    |   |  |   |___ ");
+        System.out.println("|___|  |_||_______||_______||_______||_______|  |___|    |___|  |_______|");
+        System.out.println(" ");System.out.println(" ");System.out.println(" ");
+
+
+
 
         while (odpowiedz == 'y' || odpowiedz == 'Y')
         {
