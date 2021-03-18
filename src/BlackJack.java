@@ -1,6 +1,6 @@
 import java.util.Random;
 import java.util.Scanner;
-
+import java.util.concurrent.TimeUnit;
 
 
 public class BlackJack {
@@ -16,6 +16,8 @@ public class BlackJack {
         int SumaKrupiera = 0;
         int WylosowanaKarta = 0;
 
+        boolean kłódka = true;
+        boolean BJ = false;
         boolean przegrana = false;
         boolean KrupierBust = false;
         boolean Bust = false;
@@ -39,6 +41,7 @@ public class BlackJack {
         try {
             do {
                 do {
+                    kłódka = true;
                     System.out.println("Podaj kwotę którą chcesz postawić?");
                     bet = scanner.nextDouble();
 
@@ -114,7 +117,8 @@ public class BlackJack {
             System.out.print(" oraz " + talia[losowakarta] + " " + kolor[losowykolor] + " |Suma Kart: " + SumaGracza);
             if (SumaGracza == 21) {
                 System.out.println();
-                System.out.println("Black Jack! Wygrałeś!");
+                System.out.println("Black Jack!");
+                BJ = true;
                 KrupierBust = true;
 
             } else do {
@@ -167,7 +171,9 @@ public class BlackJack {
                         SumaKrupiera += 10;
                     }
 
-
+                    if (SumaKrupiera >= SumaGracza) {
+                        KrupierBust = true;
+                    }
                     if (SumaKrupiera > 16) {
                         KrupierBust = true;
                     } else if (SumaKrupiera == 21) {
@@ -177,14 +183,41 @@ public class BlackJack {
 
                     System.out.println("Krupier wylosował: " + talia[losowakarta] + " " + kolor[losowykolor] + " |Łącznie: " + SumaKrupiera);
                 }
+
             } while (!KrupierBust);
 
-                if (!playAgain && player.getMoney() > 0) {
-                    System.out.println("chcesz znowu zagrać ? tak [y] nie [n]");
-                    String draw = scanner.next();
-                    if (draw.equals("n") || draw.equals("N"))
-                        play = false;
-                }
+            if(SumaGracza < 22 && SumaGracza > SumaKrupiera){
+                player.setMoney(player.getMoney() + bet * 2);
+                System.out.println("Gratulacje wygrałeś " + bet * 2);
+            } else if(SumaGracza < 22 && SumaGracza == SumaKrupiera){
+                System.out.println("Push. Nikt nie wygrywa.");
+            } else if (BJ && SumaGracza > SumaKrupiera){
+                player.setMoney(player.getMoney() + bet * 2.5);
+                System.out.println("Gratulacje wygrałeś " + bet * 2.5);
+            } else if(SumaGracza < 22 && SumaGracza < SumaKrupiera && SumaKrupiera < 22){
+                System.out.println("Przegrałeś! Nastepnym razem licz karty!");
+            } else if(SumaGracza > 21){
+                System.out.println("Przegrałeś! Nastepnym razem licz karty!");
+            } else if(SumaGracza < 22 && SumaGracza < SumaKrupiera && SumaKrupiera > 22){
+                player.setMoney(player.getMoney() + bet * 2);
+                System.out.println("Gratulacje wygrałeś " + bet * 2);
+            }
+
+
+               do{ if (!playAgain && player.getMoney() > 0) {
+                   System.out.println("chcesz znowu zagrać ? tak [y] nie [n]");
+                   String draw = scanner.next();
+                   if (draw.equals("n") || draw.equals("N")) {
+                       play = false;
+                       kłódka = false;
+                   } else if (draw.equals("y") || draw.equals("Y")) {
+                    kłódka = false;
+                   } else {
+                       System.out.println("Złe dane!");
+                   }
+
+               }
+               } while (kłódka);
 
 
         }while (play);
