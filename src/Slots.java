@@ -16,7 +16,7 @@ public class Slots {
         Random random = new Random();
         try {
             do {
-                System.out.println("Witamy w Automacie! 1");
+                System.out.println("Witamy w Automacie! ");
                 System.out.println("Gra polega na wylosowaniu 3 tych samych liczb.");
                 System.out.println("Twoje saldo wynosi: $" + player.getMoney());
                 do {
@@ -37,25 +37,31 @@ public class Slots {
                 System.out.println("Twoje saldo bo obstawieniu = $" + player.getMoney());
                 System.out.println("Automat losuje twoje znaczki...");
                 TimeUnit.SECONDS.sleep(3);
-                int a = random.nextInt(100);
-                int b = random.nextInt(5);
-                int c = random.nextInt(5);
+                int a = random.nextInt(101);
+                int b = random.nextInt(101);
+                int c = random.nextInt(101);
                 int pierwsza = 0;
                 int druga = 0;
                 int trzecia = 0;
-                if (a < 40)
+                if (a < 19)
                 {
                     pierwsza = 5;
-                }else if (a > 39 && a < 60)
+                }else if (a > 18 && a < 38)
                 {
                     pierwsza = 4;
-                }else if (a > 59 && a < 75)
+                }else if (a > 37 && a < 57)
                 {
                     pierwsza = 3;
-                }else if (a > 74 && a < 80)
+                }else if (a > 56 && a < 76)
                 {
                     pierwsza = 2;
-                }else if (a > 79 && a < 90)
+                }else if (a > 75 && a < 95)
+                {
+                    pierwsza = 1;
+                }else if (a > 94 && a < 101)
+                {
+                    pierwsza = 0;
+                }
                 switch (pierwsza)
                 {
                     case 0:
@@ -76,8 +82,26 @@ public class Slots {
                     default:
                         System.out.print(" D");
                 }
-
-                switch (b)
+                if (b < 19)
+                {
+                    druga = 5;
+                }else if (b > 18 && b < 38)
+                {
+                    druga = 4;
+                }else if (b > 37 && b < 57)
+                {
+                    druga = 3;
+                }else if (b > 56 && b < 76)
+                {
+                    druga = 2;
+                }else if (b > 75 && b < 95)
+                {
+                    druga = 1;
+                }else if (b > 94 && b < 101)
+                {
+                    druga = 0;
+                }
+                switch (druga)
                 {
                     case 0:
                         System.out.print(" 7");
@@ -97,8 +121,26 @@ public class Slots {
                     default:
                         System.out.print(" D");
                 }
-
-                switch (c)
+                if (c < 19)
+                {
+                    trzecia = 5;
+                }else if (c > 18 && c < 38)
+                {
+                    trzecia = 4;
+                }else if (c > 37 && c < 57)
+                {
+                    trzecia = 3;
+                }else if (c > 56 && c < 76)
+                {
+                    trzecia = 2;
+                }else if (c > 75 && c < 95)
+                {
+                    trzecia = 1;
+                }else if (c > 94 && c < 101)
+                {
+                    trzecia = 0;
+                }
+                switch (trzecia)
                 {
                     case 0:
                         System.out.print(" 7");
@@ -118,31 +160,35 @@ public class Slots {
                     default:
                         System.out.print(" D");
                 }
-                if (a != b && a != c && b != c)
+                if (pierwsza != druga && pierwsza != trzecia && druga != trzecia)
                 {
                     System.out.println("\nNiestety nic nie wygrałeś.");
                 }
-                else if (a == b || a == c || b == c)
+                else if (pierwsza == druga || pierwsza == trzecia || druga == trzecia)
                 {
-
+                    reward = bet;
                     System.out.println("\nGratuluję, wygrałeś $" + reward);
-                    player.setMoney(player.getMoney() + reward); ;
+                    player.setMoney(player.getMoney() + reward);
                 }
-                else if (a == b && a == c && a != 0)
+                else if (pierwsza == druga && pierwsza == trzecia && pierwsza != 0)
                 {
-
+                    reward = bet * 1.1;
                     System.out.println("\nGratuluję, wygrałeś $" + reward );
                     player.setMoney(player.getMoney() + reward);
                 }
-                else if (a == 0 && b == 0 && c == 0)
+                else if (pierwsza == 0 && druga == 0 && trzecia == 0)
                 {
-
+                    reward = bet * 50;
                     System.out.println("\nGratuluję wygrałeś główną nagrodę $" + reward);
-
+                    player.setMoney(player.getMoney() + reward);
                 }
 
-                System.out.println("Continue? y/n ");
-                scanner.next();
+                System.out.println("Grasz dalej? [y]/[n]");
+                String choice = scanner.next();
+                if (choice.equals("n")) play = false;
+                else if (player.getMoney() <= 0){
+                play = false;
+            }
 
 
 
@@ -150,8 +196,10 @@ public class Slots {
 
 
             }while(play);
-        } catch (Exception exception) {
-            exception.printStackTrace();
+        }catch (Exception exception){
+            System.out.println("Error");
+            player.setMoney(bet);
+            scanner.next();
         }
 
 
