@@ -3,7 +3,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        Gracz playerOne = new Gracz("Szmata",500,19,0);
+        Gracz playerOne = new Gracz("Filip",500,19,0);
         SzczesliwaLiczba SzczesliwaLiczba = new SzczesliwaLiczba();
         Pozyczka Pozyczka = new Pozyczka();
 
