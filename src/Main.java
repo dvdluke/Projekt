@@ -1,9 +1,10 @@
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        Gracz playerOne = new Gracz("Filip",500,18,0);
-        LuckyMachine luckyMachine = new LuckyMachine();
+        Gracz playerOne = new Gracz("Szmata",500,19,0);
+        SzczesliwaLiczba SzczesliwaLiczba = new SzczesliwaLiczba();
         Pozyczka Pozyczka = new Pozyczka();
 
         Scanner scanner = new Scanner(System.in);
@@ -24,7 +25,7 @@ public class Main {
                 }
             }
             else if (playerOne.getAge() >= 18 && playerOne.getMoney() > 0){
-                System.out.println("Opcje:\n[1] Slots\n[2] Ruletka\n[3] BlackJack\n[4] Lotto\n[5] Wyjdź z kasyna\n----Saldo = $" + playerOne.getMoney() + "----");
+                System.out.println("Opcje:\n[1] Slots\n[2] Ruletka\n[3] BlackJack\n[4] Lotto\n[5] Zasady gier\n[6] Wyjdź z kasyna\n----Saldo = $" + playerOne.getMoney() + "----");
                 String choice = scanner.next();
                 switch (choice) {
 
@@ -40,11 +41,23 @@ public class Main {
 
                     }
                     case "4" -> {
-                        LuckyMachine.luckyMachineGame(playerOne);
+                        SzczesliwaLiczba.SzczesliwaLiczbaGame(playerOne);
 
                     }
                     case "5" -> {
-                        System.out.println("Wyszedłeś z Kasyna");
+                        System.out.println("Jesteś za młody na kasyno jeżeli nie znasz zasad.");
+                        TimeUnit.SECONDS.sleep(1);
+                        System.out.println(" __    _  _______  __   __  ______    _______ ");
+                        System.out.println("|  |  | ||   _   ||  | |  ||    _ |  |   _   |");
+                        System.out.println("|   |_| ||  |_|  ||  | |  ||   | ||  |  |_|  |");
+                        System.out.println("|       ||       ||  |_|  ||   |_||_ |       |");
+                        System.out.println("|  _    ||       ||       ||    __  ||       |");
+                        System.out.println("| | |   ||   _   ||       ||   |  | ||   _   |");
+                        System.out.println("|_|  |__||__| |__||_______||___|  |_||__| |__|");
+                        stan = false;
+                    }
+                    case "6" -> {
+                        System.out.println("Wyszedłeś z kasyna.");
                         stan = false;
                     }
                     default -> System.out.println("Błąd");

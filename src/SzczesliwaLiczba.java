@@ -2,12 +2,12 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
-public class LuckyMachine {
+public class SzczesliwaLiczba {
 
     Random random = new Random();
     Scanner scanner = new Scanner(System.in);
 
-    public static void luckyMachineGame(Gracz player) throws InterruptedException {
+    public static void SzczesliwaLiczbaGame(Gracz player) throws InterruptedException {
 
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
