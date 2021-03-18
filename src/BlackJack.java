@@ -51,7 +51,8 @@ public class BlackJack {
         }
         while (betAgain);
 
-        System.out.println(); System.out.println(); System.out.println(); System.out.println(); System.out.println(); System.out.println(); System.out.println(); System.out.println();
+        System.out.println(); System.out.println(); System.out.println(); System.out.println();
+        System.out.println(); System.out.println(); System.out.println(); System.out.println();
 
         System.out.println("Twoje saldo po transakcji = " + player.getMoney());
 
@@ -68,7 +69,7 @@ public class BlackJack {
         } else if (losowakarta > 9) {
             SumaKrupiera = 10;
         }
-        System.out.println("Karty krupiera to: " + talia[losowakarta] + " " + kolor[losowykolor] + " łącznie: " + SumaKrupiera);
+        System.out.println("Karty krupiera to: " + talia[losowakarta] + " " + kolor[losowykolor] + " |Suma Kart: " + SumaKrupiera);
 
 
         losowakarta = random.nextInt(13);
@@ -88,14 +89,40 @@ public class BlackJack {
         losowykolor = random.nextInt(3);
 
         if (losowakarta == 0) {
-            SumaGracza += 1;
+            if(SumaGracza < 11){
+                SumaGracza += 11;
+            }else  SumaGracza += 1;
         } else if (losowakarta > 0 && losowakarta < 9) {
             SumaGracza += losowakarta + 1;
         } else if (losowakarta > 9) {
             SumaGracza += 10;
         }
 
-        System.out.print(" oraz " + talia[losowakarta] + " " + kolor[losowykolor] + " łącznie: " + SumaGracza);
+        System.out.print(" oraz " + talia[losowakarta] + " " + kolor[losowykolor] + " |Suma Kart: " + SumaGracza);
+
+        System.out.println(); System.out.println(); System.out.println(); System.out.println();
+        System.out.println("Czy chcesz dobrać? tak [y] nie [n]");
+        String draw = scanner.next();
+        if(draw == "y" || draw == "Y"){
+
+            losowakarta = random.nextInt(13);
+            losowykolor = random.nextInt(3);
+
+            if (losowakarta == 0) {
+                if(SumaGracza < 11){
+                    SumaGracza += 11;
+                }else  SumaGracza += 1;
+            } else if (losowakarta > 0 && losowakarta < 9) {
+                SumaGracza += losowakarta + 1;
+            } else if (losowakarta > 9) {
+                SumaGracza += 10;
+            }
+
+
+            System.out.println("Wylosowałeś " + talia[losowakarta] + kolor[losowykolor] + "|Suma Kart: " + SumaGracza);
+        }
+        else playAgain = true;
+
 
 
         }catch (Exception exception){
