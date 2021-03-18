@@ -202,6 +202,7 @@ public class Slots {
                     reward = 0;
                 }
                     do{ if (!playAgain && player.getMoney() > 0) {
+                        System.out.println("Twój aktualny balans to $" + player.getMoney());
                         System.out.println("chcesz znowu zagrać ? tak [y] nie [n]");
                         String draw = scanner.next();
                         if (draw.equals("n") || draw.equals("N")) {

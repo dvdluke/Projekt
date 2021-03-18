@@ -42,6 +42,9 @@ public class BlackJack {
             do {
                 do {
                     kłódka = true;
+                    KrupierBust = false;
+                    Bust = false;
+                    przegrana = false;
                     System.out.println("Podaj kwotę którą chcesz postawić?");
                     bet = scanner.nextDouble();
 
@@ -186,14 +189,17 @@ public class BlackJack {
 
             } while (!KrupierBust);
 
-            if(SumaGracza < 22 && SumaGracza > SumaKrupiera){
-                player.setMoney(player.getMoney() + bet * 2);
-                System.out.println("Gratulacje wygrałeś " + bet * 2);
-            } else if(SumaGracza < 22 && SumaGracza == SumaKrupiera){
-                System.out.println("Push. Nikt nie wygrywa.");
-            } else if (BJ && SumaGracza > SumaKrupiera){
+
+
+            if(BJ && SumaGracza > SumaKrupiera){
                 player.setMoney(player.getMoney() + bet * 2.5);
                 System.out.println("Gratulacje wygrałeś " + bet * 2.5);
+            } else if(SumaGracza < 22 && SumaGracza == SumaKrupiera){
+                player.setMoney(player.getMoney() + bet);
+                System.out.println("Push. Nikt nie wygrywa. Dostajesz pieniądze z powrotem");
+            } else if (SumaGracza < 22 && SumaGracza > SumaKrupiera){
+                player.setMoney(player.getMoney() + bet * 2);
+                System.out.println("Gratulacje wygrałeś " + bet * 2);
             } else if(SumaGracza < 22 && SumaGracza < SumaKrupiera && SumaKrupiera < 22){
                 System.out.println("Przegrałeś! Nastepnym razem licz karty!");
             } else if(SumaGracza > 21){
@@ -205,6 +211,7 @@ public class BlackJack {
 
 
                do{ if (!playAgain && player.getMoney() > 0) {
+                   System.out.println("Twój aktualny balans to $" + player.getMoney());
                    System.out.println("chcesz znowu zagrać ? tak [y] nie [n]");
                    String draw = scanner.next();
                    if (draw.equals("n") || draw.equals("N")) {
