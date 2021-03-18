@@ -7,7 +7,11 @@ public class LuckyMachine {
     Random random = new Random();
     Scanner scanner = new Scanner(System.in);
 
-    public void luckyMachineGame(Gracz player) {
+    public static void luckyMachineGame(Gracz player) {
+
+        Random random = new Random();
+        Scanner scanner = new Scanner(System.in);
+
         boolean playAgain = false;
         boolean betAgain = true;
         double reward = 0;

@@ -115,7 +115,7 @@ public class BlackJack {
             if (SumaGracza == 21) {
                 System.out.println();
                 System.out.println("Black Jack! Wygrałeś!");
-                KrupierBust = true
+                KrupierBust = true;
 
             } else do {
                 System.out.println();
@@ -179,16 +179,18 @@ public class BlackJack {
                 }
             } while (!KrupierBust);
 
-            System.out.println("Czy chcesz zagrać jeszcze raz? y/n");
-            String draw = scanner.next();
-            if (draw.equals("n") || draw.equals("N")) {
-                play = false;
-            }
+                if (!playAgain && player.getMoney() > 0) {
+                    System.out.println("chcesz znowu zagrać ? tak [y] nie [n]");
+                    String draw = scanner.next();
+                    if (draw.equals("n") || draw.equals("N"))
+                        play = false;
+                }
+
+
         }while (play);
 
         }catch (Exception exception){
         System.out.println("Error");
-        player.setMoney(bet);
         scanner.next();
          }
     }

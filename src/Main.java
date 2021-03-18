@@ -33,15 +33,15 @@ public class Main {
                     }
                     case "2" -> {
                         Ruletka.Ruletka(playerOne);;
-                        stan = false;
+
                     }
                     case "3" -> {
                         BlackJack.BlackJackGame(playerOne);
-                        stan = false;
+
                     }
                     case "4" -> {
-                        System.out.println("Ex");
-                        stan = false;
+                        LuckyMachine.luckyMachineGame(playerOne);
+
                     }
                     case "5" -> {
                         System.out.println("Wyszedłeś z Kasyna");
