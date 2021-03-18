@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args)  {
+    public static void main(String[] args) throws InterruptedException {
         Gracz playerOne = new Gracz("Filip",500,18,0);
         LuckyMachine luckyMachine = new LuckyMachine();
         Pozyczka Pozyczka = new Pozyczka();
@@ -32,7 +32,7 @@ public class Main {
                         Slots.Slots(playerOne);
                     }
                     case "2" -> {
-                        System.out.println("Exit");
+                        Ruletka.Ruletka(playerOne);;
                         stan = false;
                     }
                     case "3" -> {

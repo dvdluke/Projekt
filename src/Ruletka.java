@@ -4,22 +4,41 @@ import java.util.concurrent.TimeUnit;
 
 public class Ruletka
 {
-    public static void main(String[] args) throws InterruptedException {
+    public static void Ruletka(Gracz player) throws InterruptedException {
         Scanner keyboard = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         Random generator = new Random();
-        double total = 500;
-        double amount;
+        boolean playAgain = false;
+        boolean betAgain = true;
+        boolean play = true;
+        double reward = 0;
+        double bet = 0;
+        double amount = 0;
         int Choice;
         int Liczba;
         int rouletteNum;
         int Wynik;
         char odpowiedz = 'y';
-        int WynikArray[] = new int[36];
+        int WynikArray[] = new int[37];
 
-        while (odpowiedz == 'y' || odpowiedz == 'Y' && total <= 0)
+
+        while (odpowiedz == 'y' || odpowiedz == 'Y')
         {
-            System.out.print("Ile chcesz obstawić pieniędzy: ");
-            amount = keyboard.nextDouble();
+            do {
+                System.out.println("Podaj kwotę którą chcesz postawić?");
+                bet = scanner.nextDouble();
+
+                if(bet > 0){
+                    if(player.getMoney() < bet) System.out.println("Nie masz funduszy by tyle obstawić!");
+                    else{
+                        player.setMoney(player.getMoney() - bet);
+                        betAgain = false;
+                    }
+                }
+                else if(bet < 0){
+                    System.out.println("Złe dane");
+                }
+            }while (betAgain);
             System.out.print("\n[0] - Parzyste liczby\n[1] - Nieparzyste liczby\n[2] - Pojedynczą liczbę\n");
             Choice = -1;
             while (Choice < 0 || Choice > 2)
@@ -37,37 +56,19 @@ public class Ruletka
                 }
             }
             rouletteNum = generator.nextInt(37);
-            System.out.println(" ");
-            System.out.println(" ");
-            System.out.println(" ");
-            System.out.println(" ");
-            System.out.println(" ");
-            System.out.println(" ");
-            System.out.println(" ");
-            System.out.println(" ");
-            System.out.println(" ");
+            System.out.println(" ");System.out.println(" ");System.out.println(" ");System.out.println(" ");
+            System.out.println(" ");System.out.println(" ");System.out.println(" ");System.out.println(" ");
+            System.out.println(" ");System.out.println(" ");System.out.println(" ");System.out.println(" ");
             System.out.println("Losowanie liczby.");
             TimeUnit.SECONDS.sleep(1);
-            System.out.println("\t\t\t\t\t\t\t\t ");
-            System.out.println(" ");
-            System.out.println(" ");
-            System.out.println(" ");
-            System.out.println(" ");
-            System.out.println(" ");
-            System.out.println(" ");
-            System.out.println(" ");
-            System.out.println(" ");
+            System.out.println(" ");System.out.println(" ");System.out.println(" ");System.out.println(" ");
+            System.out.println(" ");System.out.println(" ");System.out.println(" ");System.out.println(" ");
+            System.out.println(" ");System.out.println(" ");System.out.println(" ");System.out.println(" ");
             System.out.println("Losowanie liczby..");
             TimeUnit.SECONDS.sleep(1);
-            System.out.println(" ");
-            System.out.println(" ");
-            System.out.println(" ");
-            System.out.println(" ");
-            System.out.println(" ");
-            System.out.println(" ");
-            System.out.println(" ");
-            System.out.println(" ");
-            System.out.println(" ");
+            System.out.println(" ");System.out.println(" ");System.out.println(" ");System.out.println(" ");
+            System.out.println(" ");System.out.println(" ");System.out.println(" ");System.out.println(" ");
+            System.out.println(" ");System.out.println(" ");System.out.println(" ");System.out.println(" ");
             System.out.println("Losowanie liczby...");
             TimeUnit.SECONDS.sleep(2);
             System.out.println(" ");
@@ -90,25 +91,21 @@ public class Ruletka
             if (Wynik > 0)
             {
                 System.out.println("Gratulacje!!!");
-                System.out.printf("Wygrałeś $%.2f \n", Wynik * amount);
-                System.out.printf("Twoje saldo: $%.2f \n",
-                        (Wynik + 1) * amount);
-                total = (Wynik + 1) * amount + total;
+                System.out.printf("Wygrałeś $%.2f \n",
+                (Wynik + 1) * bet);
+                player.setMoney((((Wynik + 1) * bet) + player.getMoney()));
                 WynikArray[rouletteNum]++;
             }
             else
             {
                 System.out.println("Przegrałeś zakład. Następnym razem ci się uda!");
-                System.out.printf("Straciłeś $%.2f \n",
-                        (Wynik + 1) * amount);
-                total = total - (Wynik + 1) * (amount);
                 WynikArray[rouletteNum]++;
-                if (total <= 0) {
+                if (player.getMoney() <= 0) {
                     break;
                 }
             }
 
-            System.out.println("Twój aktualny balans to $" + total);
+            System.out.println("Twój aktualny balans to $" + player.getMoney());
             System.out.print("\nCzy chcesz ponownie spróbować swojego szczęścia? (y/n)\n ");
             odpowiedz = keyboard.next().charAt(0);
         }
