@@ -178,6 +178,7 @@ public class Slots {
                 if (pierwsza != druga && pierwsza != trzecia && druga != trzecia)
                 {
                     System.out.println("\nNiestety nic nie wygrałeś.");
+                    break;
                 }
                 else if (pierwsza == druga || pierwsza == trzecia || druga == trzecia)
                 {
@@ -203,7 +204,7 @@ public class Slots {
                 }
                     do{ if (!playAgain && player.getMoney() > 0) {
                         System.out.println("Twój aktualny balans to $" + player.getMoney());
-                        System.out.println("chcesz znowu zagrać ? tak [y] nie [n]");
+                        System.out.println("Chcesz znowu zagrać? tak [y] nie [n]");
                         String draw = scanner.next();
                         if (draw.equals("n") || draw.equals("N")) {
                             play = false;
