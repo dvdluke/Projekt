@@ -64,7 +64,7 @@ public class Main {
                 }
             }
             else{
-                System.out.println("jesteś niepełnoletni");
+                System.out.println("Jesteś niepełnoletni lub przekroczyłeś limit pożyczek kasyna");
                 stan = false;
             }
 
