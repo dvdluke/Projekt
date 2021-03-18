@@ -7,7 +7,7 @@ public class LuckyMachine {
     Random random = new Random();
     Scanner scanner = new Scanner(System.in);
 
-    public static void luckyMachineGame(Gracz player) {
+    public static void luckyMachineGame(Gracz player) throws InterruptedException {
 
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
@@ -116,7 +116,8 @@ public class LuckyMachine {
             } while (play);
         }catch (Exception exception){
             System.out.println("Error");
-            player.setMoney(bet);
+            System.out.println("Z powodu awarii prosimy podejść do drugiej maszyny bądź wybrać inną grę.");
+            TimeUnit.SECONDS.sleep(5);;
             scanner.next();
         }
     }

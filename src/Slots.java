@@ -189,7 +189,7 @@ public class Slots {
                 }
 
                     if (!playAgain && player.getMoney() > 0) {
-                        System.out.println("chcesz znowu zagrać ? tak [y] nie [n]");
+                        System.out.println("Chcesz znowu zagrać ? tak [y] nie [n]");
                         String choice = wybor.next();
                         if (choice.equals("n")) play = false;
                     }
