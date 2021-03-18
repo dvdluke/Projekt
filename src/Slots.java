@@ -1,3 +1,4 @@
+import java.sql.Time;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
@@ -6,13 +7,13 @@ public class Slots {
     Scanner scanner = new Scanner(System.in);
     Random random = new Random();
 
-    public static void Slots(Gracz player) {
+    public static void Slots(Gracz player) throws InterruptedException {
         boolean playAgain = false;
         boolean betAgain = true;
         boolean play = true;
         double reward = 0;
         double bet = 0;
-        Scanner scanner = new Scanner(System.in);
+        Scanner wybor = new Scanner(System.in);
         Random random = new Random();
         try {
                 System.out.println("Witamy w Automacie! ");
@@ -21,7 +22,7 @@ public class Slots {
                 do {
                 do {
                     System.out.println("Podaj kwotę którą chcesz postawić?");
-                    bet = scanner.nextDouble();
+                    bet = wybor.nextDouble();
 
                     if(bet > 0){
                         if(player.getMoney() < bet) System.out.println("Nie masz funduszy by tyle obstawić!");
@@ -167,29 +168,34 @@ public class Slots {
                 else if (pierwsza == druga || pierwsza == trzecia || druga == trzecia)
                 {
                     reward = bet;
-                    System.out.println("\nGratuluję, nie wygrałeś nic ale odzyskałeś postawioną sumę o wartości "
+                    System.out.println("\nGratuluję, nie wygrałeś nic ale odzyskałeś postawioną sumę o wartości $"
                             + reward);
                     player.setMoney(player.getMoney() + reward);
+                    reward = 0;
                 }
                 else if (pierwsza == druga && pierwsza == trzecia && pierwsza != 0)
                 {
                     reward = bet * 2;
                     System.out.println("\nGratuluję, wygrałeś $" + reward );
                     player.setMoney(player.getMoney() + reward);
+                    reward = 0;
                 }
                 else if (pierwsza == 0 && druga == 0 && trzecia == 0)
                 {
                     reward = bet * 50;
                     System.out.println("\nGratuluję wygrałeś główną nagrodę $" + reward);
                     player.setMoney(player.getMoney() + reward);
+                    reward = 0;
                 }
 
-                System.out.println("Grasz dalej? [y]/[n]");
-                String choice = scanner.next();
-                if (choice.equals("n")) play = false;
-                else if (player.getMoney() <= 0){
-                play = false;
-            }
+                    if (!playAgain && player.getMoney() > 0) {
+                        System.out.println("chcesz znowu zagrać ? tak [y] nie [n]");
+                        String choice = wybor.next();
+                        if (choice.equals("n")) play = false;
+                    }
+                    else if (player.getMoney() <= 0){
+                        play = false;
+                    }
 
 
 
@@ -199,8 +205,9 @@ public class Slots {
             }while(play);
         }catch (Exception exception){
             System.out.println("Error");
-            player.setMoney(bet);
-            scanner.next();
+            System.out.println("Z powodu awarii prosimy podejść do drugiej maszyny bądź wybrać inną grę.");
+            TimeUnit.SECONDS.sleep(5);
+            wybor.next();
         }
 
 
