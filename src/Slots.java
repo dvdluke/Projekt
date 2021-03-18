@@ -178,7 +178,7 @@ public class Slots {
                 if (pierwsza != druga && pierwsza != trzecia && druga != trzecia)
                 {
                     System.out.println("\nNiestety nic nie wygrałeś. ;(");
-                    break;
+
                 }
                 else if (pierwsza == druga || pierwsza == trzecia || druga == trzecia)
                 {
