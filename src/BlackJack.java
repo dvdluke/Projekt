@@ -195,10 +195,17 @@ public class BlackJack {
                 System.out.println("Gratulacje wygrałeś " + bet * 2);
             } else if(SumaGracza < 22 && SumaGracza < SumaKrupiera && SumaKrupiera < 22){
                 System.out.println("Przegrałeś! Nastepnym razem licz karty!");
-                break;
+                if (player.getMoney() <= 0){
+                    break;
+                } else{
+                }
             } else if(SumaGracza > 21){
                 System.out.println("Przegrałeś! Nastepnym razem licz karty!");
+                if (player.getMoney() <= 0){
                 break;
+                } else{
+                }
+
             } else if(SumaGracza < 22 && SumaGracza < SumaKrupiera && SumaKrupiera > 22){
                 player.setMoney(player.getMoney() + bet * 2);
                 System.out.println("Gratulacje wygrałeś " + bet * 2);
