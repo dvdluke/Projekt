@@ -1,30 +1,23 @@
 import java.util.Random;
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 
 
 public class BlackJack {
-
-
-    Random random = new Random();
-    Scanner scanner = new Scanner(System.in);
 
     public static void BlackJackGame(Gracz player) {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
         int SumaGracza = 0;
         int SumaKrupiera = 0;
-        int WylosowanaKarta = 0;
 
-        boolean kłódka = true;
+        boolean kłódka;
         boolean BJ = false;
-        boolean przegrana = false;
-        boolean KrupierBust = false;
-        boolean Bust = false;
+        boolean przegrana;
+        boolean KrupierBust;
+        boolean Bust;
         boolean playAgain = false;
         boolean betAgain = true;
-        double reward = 0;
-        double bet = 0;
+        double bet;
         String[] talia = {"As", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jopek", "Dama", "Król"};
         String[] kolor = {"Serce", "Pik", "Trefl", "Karo"};
 

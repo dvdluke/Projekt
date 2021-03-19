@@ -8,18 +8,13 @@ public class Ruletka
         Scanner keyboard = new Scanner(System.in);
         Scanner scanner = new Scanner(System.in);
         Random generator = new Random();
-        boolean playAgain = false;
         boolean betAgain = true;
-        boolean play = true;
-        double reward = 0;
-        double bet = 0;
-        double amount = 0;
+        double bet;
         int Choice;
         int Liczba;
         int rouletteNum;
         int Wynik;
         char odpowiedz = 'y';
-        int WynikArray[] = new int[37];
 
         System.out.println(" ");System.out.println(" ");System.out.println(" ");
         System.out.println("It's time for soooooommme");
@@ -64,7 +59,7 @@ public class Ruletka
             {
                 while (Liczba < 1 || Liczba > 36)
                 {
-                    System.out.print("Postaw zakład na liczbę (1-36)");
+                    System.out.print("Postaw zakład na liczbę (1-36): ");
                     Liczba = keyboard.nextInt();
                 }
             }
@@ -113,12 +108,10 @@ public class Ruletka
                 System.out.printf("Wygrałeś $%.2f \n",
                 (Wynik + 1) * bet);
                 player.setMoney((((Wynik + 1) * bet) + player.getMoney()));
-                WynikArray[rouletteNum]++;
             }
             else
             {
                 System.out.println("Przegrałeś zakład. Następnym razem ci się uda!");
-                WynikArray[rouletteNum]++;
                 if (player.getMoney() <= 0) {
                     break;
                 }

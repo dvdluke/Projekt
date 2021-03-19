@@ -3,9 +3,12 @@ import java.util.concurrent.TimeUnit;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        Gracz playerOne = new Gracz("Filip",500,19,0);
+        Gracz playerOne = new Gracz("Krzysiek",650,52,0);
         SzczesliwaLiczba SzczesliwaLiczba = new SzczesliwaLiczba();
         Pozyczka Pozyczka = new Pozyczka();
+
+        System.out.println("Witamy w kasynie " + playerOne.getName() + "!");
+        System.out.println();
 
         Scanner scanner = new Scanner(System.in);
         boolean stan = true;
@@ -33,16 +36,13 @@ public class Main {
                         Slots.Slots(playerOne);
                     }
                     case "2" -> {
-                        Ruletka.Ruletka(playerOne);;
-
+                        Ruletka.Ruletka(playerOne);
                     }
                     case "3" -> {
                         BlackJack.BlackJackGame(playerOne);
-
                     }
                     case "4" -> {
                         SzczesliwaLiczba.SzczesliwaLiczbaGame(playerOne);
-
                     }
                     case "5" -> {
                         System.out.println("Jesteś za młody na kasyno jeżeli nie znasz zasad.");

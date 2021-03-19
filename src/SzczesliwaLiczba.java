@@ -4,9 +4,6 @@ import java.util.concurrent.TimeUnit;
 
 public class SzczesliwaLiczba {
 
-    Random random = new Random();
-    Scanner scanner = new Scanner(System.in);
-
     public static void SzczesliwaLiczbaGame(Gracz player) throws InterruptedException {
 
         Random random = new Random();
@@ -15,7 +12,7 @@ public class SzczesliwaLiczba {
         boolean playAgain = false;
         boolean betAgain = true;
         double reward = 0;
-        double bet = 0;
+        double bet;
         int[] luckyNumbers = new int[3];
         for(int i = 0; i < 3; i++){
             luckyNumbers[i] = random.nextInt(20); // 0 - 19
@@ -117,7 +114,7 @@ public class SzczesliwaLiczba {
         }catch (Exception exception){
             System.out.println("Error");
             System.out.println("Z powodu awarii prosimy podejść do drugiej maszyny bądź wybrać inną grę.");
-            TimeUnit.SECONDS.sleep(5);;
+            TimeUnit.SECONDS.sleep(5);
             scanner.next();
         }
     }

@@ -1,19 +1,16 @@
-import java.sql.Time;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class Slots {
-    Scanner scanner = new Scanner(System.in);
-    Random random = new Random();
 
     public static void Slots(Gracz player) throws InterruptedException {
         boolean playAgain = false;
         boolean betAgain = true;
         boolean play = true;
-        boolean kłódka = true;
-        double reward = 0;
-        double bet = 0;
+        boolean kłódka;
+        double reward;
+        double bet;
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
 
